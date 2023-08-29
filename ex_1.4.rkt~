@@ -1,0 +1,4 @@
+#lang racket
+(define (a-plus-abs-b a b)
+  ((if (> b 0) + -) a b))
+; This procedure allows us to sum up two elements a and absolute value of b
