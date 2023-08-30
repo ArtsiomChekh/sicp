@@ -3,6 +3,7 @@
 (define (test x y)
   (if (= x 0) 0 y))
 
+; Solution:
 ; Ben Bitdiddle will observe an infinite loop,
 ; because uses applicative-order evaluation assumes
 ; that the argument is evaluated before the function is applied.
