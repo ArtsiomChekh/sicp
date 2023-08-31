@@ -20,10 +20,18 @@
   (< (abs (- (square guess) x)) 0.001))
 
 ; Solution:
-; Computing small numbers (sqrt (square 0.01)) gives us result 0.03230844833048122  
-; Computing large numbers (sqrt (square 111111111111111111)) gives us infinite evaluating
-; Floating point numbers have limited precision (0.001),
-; which means that very large numbers can result in a loss of precision.
-
+; ***
+; Computing small numbers < 0.001 (sqrt 0.0000000001) gives us result 0.03125000106562499.
+; After this we compute (square 0.03125000106562499) and we will get the not precise enough
+; result 0.000976562566601563 < 0.001
+; Computing very large numbers (sqrt 11111111111111111111111111111111111111) gives us infinite evaluating.
+; ***
 ; An altetnative stratege for implementing good-enough:
-; ???
+; ----------------------------------------------------------
+; (define (good-enough? guess x)
+;  (< (abs (- guess (improve guess x))) (/ guess 1000000)))
+; ----------------------------------------------------------
+; Computing small numbers < 0.001 (sqrt 0.0000000001) gives us result 1.0000000015603234e-5
+; Computing very large numbers (sqrt 11111111111111111111111111111111111111) gives us result 3.33333333495636e+18
+; This new implementing works better with very large number. But evantually floating point numbers have limited precision,
+; which means that numbers can result in a loss of precision.
