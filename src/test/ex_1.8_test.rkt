@@ -3,11 +3,8 @@
 (require rackunit
          "../main/ex_1.8.rkt")
 
-(define counter 0)
-
 (define (report-success description)
-  (set! counter (+ counter 1))
-  (printf "Test ~a passed: ~a\n" counter description))
+  (printf "Test passed: ~a\n" description))
 
 (check-equal? (square 2) 4 "Square")
 (report-success "Square of 2 is 4")
