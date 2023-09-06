@@ -1,4 +1,7 @@
 #lang racket
+
+(provide cube square average)
+
 (define (cube x)
   (* x x x))
 
@@ -9,9 +12,9 @@
   (cube-iter 1.0 x))
 
 (define (improve guess x)
-   (/ (+ (/ x (square guess))
-         (* 2 guess))
-      3))
+  (/ (+ (/ x (square guess))
+        (* 2 guess))
+     3))
 
 (define (average x y)
   (/ (+ x y) 2))
@@ -23,9 +26,3 @@
 
 (define (good-enough? guess x)
   (< (abs (- (cube guess) x)) 0.001))
-
-; Test:
-; (cubert 8) => 2.000004911675504
-; (cubert 64) => 4.000017449510739
-; (cubert 125) => 5.000000000287929
-; (cubert 1000000) => 100.00000000005313
