@@ -1,5 +1,7 @@
 #lang racket
 
+(provide square average new-sqrt)
+
 (define (square x)
   (* x x))
 
