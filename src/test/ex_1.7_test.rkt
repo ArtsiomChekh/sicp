@@ -1,22 +1,19 @@
 #lang racket
 
 (require rackunit
+         rackunit/text-ui
          "../main/ex_1.7.rkt")
 
-(define (report-success description)
-  (printf "Test passed: ~a\n" description))
+(run-tests
+ (test-suite
+  "ex_1.7"
+  (check-equal? (square 2) 4) 
+  (check-equal? (square 4) 16)
 
-(check-equal? (square 2) 4 "Square")
-(report-success "Square of 2 is 4")
-
-(check-equal? (square 4) 16 "Square")
-(report-success "Square of 4 is 16")
-
-(check-equal? (average 2 4) 3 "Average")
-(report-success "Average of 2 and 4 is 3")
-
-(check-equal? (average 5 5) 5 "Average")
-(report-success "Average of 5 and 5 is 5")
-
-(check-equal? (new-sqrt 100) 10.0 "New-sqrt")
-(report-success "New-sqrt of 100 is 10")
+  (check-equal? (average 2 4) 3)
+  (check-equal? (average 5 5) 5)
+ 
+  (check-equal? (new-sqrt 100) 10.0)
+  (check-equal? (new-sqrt 1000000000000) 1000000.0)
+  (check-within (new-sqrt 0.000001) 0.001 0.000001)
+  ))
