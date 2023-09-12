@@ -31,5 +31,5 @@
 ;> (p -0.7895631144708228)
 ;-0.39980345741334
 ;
-; b: The sine procedure is recursive and is called once within the body.
-; 
+; b: The sine procedure is recursive and is called once within the body. If we calculate (sine 12.15) we the p procedure is applied 5 times, and
+; if we increase the angle by 3 times then the p procedure is applied 6 times. Order of growth in space is O(log a)
