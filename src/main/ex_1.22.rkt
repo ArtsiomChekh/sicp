@@ -9,7 +9,8 @@
 
 (define (start-prime-test n start-time)
   (if (prime? n)
-      (report-prime (- (runtime) start-time))(void)))
+      (report-prime (- (runtime) start-time))
+      (void)))
 
 (define (report-prime elapsed-time)
   (display " *** ")
@@ -43,6 +44,11 @@
           (else (loop n (+ current 1)))))
 
   (loop 3 start))
+
+(search-for-primes 1000)
+(search-for-primes 10000)
+(search-for-primes 100000)
+(search-for-primes 1000000)
 
 ; Solution:
 ; Calculations:
